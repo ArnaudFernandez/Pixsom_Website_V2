@@ -138,11 +138,11 @@ export default function EyesLogo() {
                 pupilScale = 1
                 shouldTremble = false
             } else if (mood === "excited") {
-                // Upper OPEN, Lower Hidden, TREMBLE
+                // Upper OPEN, Lower Hidden, NO TREMBLE (per user request)
                 upperLidPath = "M -10,-5 L -10,-50 L 70,-50 L 70,-5 Q 30,-25 -10,-5"
                 lowerLidPath = lowerLidHidden
                 pupilScale = 1.3
-                shouldTremble = true
+                shouldTremble = false
             } else if (mood === "happy") {
                 // Upper Normal/Open, LOWER UP (Squint), TREMBLE
                 upperLidPath = "M -10,15 L -10,-50 L 70,-50 L 70,15 Q 30,0 -10,15" // Slightly relaxed upper

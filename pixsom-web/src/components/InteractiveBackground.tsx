@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef } from "react"
 import gsap from "gsap"
-import EyesLogo from "./EyesLogo"
 
 export default function InteractiveBackground() {
     const containerRef = useRef<HTMLDivElement>(null)
@@ -80,44 +79,46 @@ export default function InteractiveBackground() {
     }, [])
 
     return (
-        <div className="fixed inset-0 -z-10 flex items-center justify-center overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-900 via-[#050510] to-black">
+        <div className="fixed inset-0 -z-10 flex items-center justify-center overflow-hidden bg-black">
+            {/* 
+               Background Gradients
+               Deep, dark atmosphere
+            */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-slate-900 via-[#050510] to-black opacity-80" />
 
             {/* 3D Scene Container */}
             <div
                 ref={containerRef}
-                className="relative w-[80vw] h-[70vh] md:w-[60vw] md:h-[60vh] perspective-1000 flex items-center justify-center"
+                className="relative w-full h-full perspective-1000 flex items-center justify-center"
                 style={{ perspective: "1000px", transformStyle: "preserve-3d" }}
             >
 
-                {/* Layer 1: Background (Far, Blurred) */}
-                <div
-                    ref={bgRef}
-                    className="absolute inset-0 rounded-3xl overflow-hidden shadow-2xl opacity-40" // Reduced opacity to keep focus on text/eyes
-                    style={{
-                        transform: "translateZ(-50px)", // Push back
-                    }}
-                >
-                    <div
-                        className="w-full h-full bg-cover bg-center scale-90 blur-[1px]"
-                        style={{ backgroundImage: "url('/Pxm_Logo_FILLED_Gradient.svg')" }}
-                    />
-                    {/* Dark overlay for text contrast */}
-                    <div className="absolute inset-0 bg-black/60" />
-                </div>
-
-                import EyesLogo from "./EyesLogo"
-
-                // ... (in the JSX)
-
+                {/* Layer 1: Electric Logo Background */}
                 <div
                     ref={logoRef}
-                    className="absolute w-64 h-32 md:w-96 md:h-48 pointer-events-none" // Adjusted proportions for 2:1 eyes
+                    className="absolute w-[80vw] h-[80vw] md:w-[40vw] md:h-[40vw] max-w-[600px] max-h-[600px] flex items-center justify-center pointer-events-none"
                     style={{
-                        transform: "translateZ(50px)", // Pull forward
+                        transform: "translateZ(-20px)", // Slightly behind content
                     }}
                 >
-                    <EyesLogo />
+                    {/* Electric Glow (Rotating Conic Gradient) */}
+                    <div className="absolute inset-0 pointer-events-none">
+                        <div className="absolute inset-[-20%] bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0deg,transparent_100deg,#60A5FA_180deg,transparent_260deg,transparent_360deg)] opacity-20 blur-3xl animate-[spin_8s_linear_infinite]" />
+                        <div className="absolute inset-[-20%] bg-[conic-gradient(from_180deg_at_50%_50%,transparent_0deg,transparent_100deg,#A855F7_180deg,transparent_260deg,transparent_360deg)] opacity-20 blur-3xl animate-[spin_8s_linear_infinite_reverse]" />
+                    </div>
+
+                    {/* Logo Image (Contained) */}
+                    <img
+                        src="/Pxm_Logo_FILLED_Gradient.svg"
+                        alt="Pixsom Logo Background"
+                        className="w-full h-full object-contain drop-shadow-[0_0_50px_rgba(96,165,250,0.15)] opacity-80"
+                    />
                 </div>
+
+                {/* 
+                   Note: EyesLogo is removed from here. 
+                   It will be placed inside Hero.tsx to be part of the flow.
+                */}
 
             </div>
         </div>
