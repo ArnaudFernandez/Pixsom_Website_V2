@@ -38,28 +38,30 @@ export default function Hero() {
     }, [])
 
     return (
-        <div ref={containerRef} className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-4 text-white">
+        <div ref={containerRef} className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-4 pt-10 text-white font-sans">
 
-            <div className="max-w-4xl space-y-8">
+            <div className="max-w-[90rem] space-y-12 relative">
+                {/* 
+                   Huge Typography 
+                   Using CSS variable for font-family if tailwind config isn't set up yet: style={{ fontFamily: 'var(--font-outfit)' }} 
+                   But usually we add it to tailwind. I will use the class 'font-[family-name:var(--font-outfit)]' for now to be safe.
+                */}
                 <h1
                     ref={titleRef}
-                    className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight"
+                    className="font-[family-name:var(--font-outfit)] font-black tracking-tighter leading-none select-none"
+                    style={{ fontSize: "clamp(3.5rem, 9vw, 9rem)" }} // Massive responsive size
                 >
-                    Pixsom est un studio <br className="hidden md:block" />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
-                        créatif & technologique
+                    <span className="block text-white mb-2">Pixsom</span>
+                    <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-white animate-gradient-x opacity-90">
+                        Studio Créatif.
                     </span>
                 </h1>
 
                 <p
                     ref={descRef}
-                    className="text-lg md:text-2xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-light"
+                    className="text-xl md:text-3xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-light tracking-wide"
                 >
-                    Nous concevons des expériences digitales, des contenus vidéos et des solutions sur mesure pour les marques ambitieuses.
-                    <br className="mt-4 block" />
-                    <span className="text-white font-medium block mt-4">
-                        L’agilité d’un studio. La vision stratégique d’une agence.
-                    </span>
+                    Expériences digitales & solutions sur mesure.
                 </p>
 
                 <div ref={btnRef} className="pt-8">

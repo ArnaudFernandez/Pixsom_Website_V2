@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 
-// Using Inter for a clean, modern, technological look
-const inter = Inter({ subsets: ["latin"] });
+// Using Inter for body copy
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+// Using Outfit for catchy headlines
+const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
 export const metadata: Metadata = {
   title: "Pixsom | Studio Créatif & Technologique",
@@ -17,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className="dark">
-      <body className={`${inter.className} min-h-screen bg-black text-white antialiased selection:bg-white selection:text-black`}>
+      <body className={`${inter.variable} ${outfit.variable} font-sans min-h-screen bg-black text-white antialiased selection:bg-white selection:text-black`}>
         {children}
       </body>
     </html>

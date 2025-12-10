@@ -92,17 +92,17 @@ export default function InteractiveBackground() {
                 {/* Layer 1: Background (Far, Blurred) */}
                 <div
                     ref={bgRef}
-                    className="absolute inset-0 rounded-3xl overflow-hidden shadow-2xl opacity-60"
+                    className="absolute inset-0 rounded-3xl overflow-hidden shadow-2xl opacity-40" // Reduced opacity to keep focus on text/eyes
                     style={{
                         transform: "translateZ(-50px)", // Push back
                     }}
                 >
                     <div
-                        className="w-full h-full bg-cover bg-center scale-110 blur-[2px]"
-                        style={{ backgroundImage: "url('/background.png')" }}
+                        className="w-full h-full bg-cover bg-center scale-90 blur-[1px]"
+                        style={{ backgroundImage: "url('/Pxm_Logo_FILLED_Gradient.svg')" }}
                     />
                     {/* Dark overlay for text contrast */}
-                    <div className="absolute inset-0 bg-black/50" />
+                    <div className="absolute inset-0 bg-black/60" />
                 </div>
 
                 import EyesLogo from "./EyesLogo"
