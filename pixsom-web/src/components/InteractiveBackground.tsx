@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from "react"
 import gsap from "gsap"
+import EyesLogo from "./EyesLogo"
 
 export default function InteractiveBackground() {
     const containerRef = useRef<HTMLDivElement>(null)
@@ -104,20 +105,18 @@ export default function InteractiveBackground() {
                     <div className="absolute inset-0 bg-black/50" />
                 </div>
 
-                {/* Layer 2: Logo (Front, Sharp) */}
+                import EyesLogo from "./EyesLogo"
+
+                // ... (in the JSX)
+
                 <div
                     ref={logoRef}
-                    className="absolute w-64 h-64 md:w-96 md:h-96 pointer-events-none"
+                    className="absolute w-64 h-32 md:w-96 md:h-48 pointer-events-none" // Adjusted proportions for 2:1 eyes
                     style={{
                         transform: "translateZ(50px)", // Pull forward
                     }}
                 >
-                    {/* Using a simple circular gradient placeholder if logo image fails, or the logo img itself */}
-                    <img
-                        src="/logo.png"
-                        alt="Logo"
-                        className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"
-                    />
+                    <EyesLogo />
                 </div>
 
             </div>

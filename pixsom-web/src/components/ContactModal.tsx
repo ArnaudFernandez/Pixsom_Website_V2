@@ -72,7 +72,7 @@ export default function ContactModal() {
     return (
         <Dialog open={isOpen} onOpenChange={handleOpenChange}>
             <DialogTrigger asChild>
-                <button className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-transparent rounded-full border border-white/20 overflow-hidden cursor-pointer transition-colors duration-300 hover:border-transparent z-10 w-auto">
+                <button id="cta-trigger-btn" className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-transparent rounded-full border border-white/20 overflow-hidden cursor-pointer transition-colors duration-300 hover:border-transparent z-10 w-auto">
                     {/* Expandable Fill Background */}
                     <div className="absolute inset-0 w-full h-full bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left ease-[cubic-bezier(0.19,1,0.22,1)]" />
 
